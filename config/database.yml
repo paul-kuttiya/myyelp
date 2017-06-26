@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: myyelp_dev
+  host: localhost
+  pool: 5
+  username: myyelp
+  password: p053851238
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: myyelp_test
+  host: localhost
+  pool: 5
+  username: myyelp
+  password: p053851238
