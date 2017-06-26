@@ -1,15 +1,24 @@
-%nav.navbar.navbar-inverse
-  .container-fluid
-    .navbar-header
-      %a.navbar-brand{:href => "#"} WebSiteName
+.navbar.navbar-default{:role => "navigation"}
+  #searchbar.navbar-collapse.collapse
     %ul.nav.navbar-nav
-      %li.active
-        %a{:href => "#"} Home
+      %a.navbar-brand{:href => "#"} people's brand
+    %ul.nav.navbar-nav.navbar-right.session
       %li
-        %a{:href => "#"} Page 1
-      %li
-        %a{:href => "#"} Page 2
-    %form.navbar-form.navbar-left
-      .form-group
-        %input.form-control{:placeholder => "Search", :type => "text"}/
-      %button.btn.btn-default{:type => "submit"} Submit
+        .btn-nav
+          %a.btn.btn-danger.btn-md.navbar-btn{:href => "/register"} Sign up!
+    %form.navbar-form
+      .form-group{:style => "display:inline;"}
+        .input-group{:style => "display:table;"}
+          %input.form-control{:autocomplete => "off", :autofocus => "autofocus", :name => "search", :placeholder => "Search Here", :type => "text"}/
+          %a.input-group-addon{:style => "width:1%;"}
+            %span.glyphicon.glyphicon-search
+  #secondary-nav.container-fluid      
+    .navbar-bottom
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#"} View Business
+        %li
+          %a{:href => "#"} Recent Reviews  
+      %ul.nav.navbar-nav.navbar-right.session
+        %li
+          %a{:href => "/login"} Log in!
