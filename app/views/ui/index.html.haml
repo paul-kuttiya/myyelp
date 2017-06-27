@@ -1,24 +1,6 @@
-.navbar.navbar-default{:role => "navigation"}
-  #searchbar.navbar-collapse.collapse
-    %ul.nav.navbar-nav
-      %a.navbar-brand{:href => "#"} people's brand
-    %ul.nav.navbar-nav.navbar-right.session
-      %li
-        .btn-nav
-          %a.btn.btn-danger.btn-md.navbar-btn{:href => "/register"} Sign up!
-    %form.navbar-form
-      .form-group{:style => "display:inline;"}
-        .input-group{:style => "display:table;"}
-          %input.form-control{:autocomplete => "off", :autofocus => "autofocus", :name => "search", :placeholder => "Search Here", :type => "text"}/
-          %a.input-group-addon{:style => "width:1%;"}
-            %span.glyphicon.glyphicon-search
-  #secondary-nav.container-fluid      
-    .navbar-bottom
-      %ul.nav.navbar-nav
-        %li
-          %a{:href => "#"} View Business
-        %li
-          %a{:href => "#"} Recent Reviews  
-      %ul.nav.navbar-nav.navbar-right.session
-        %li
-          %a{:href => "/login"} Log in!
+%section.ui-index
+  %ul
+    - Dir.glob('app/views/ui/*.html.haml').sort.each do |file|
+      - wireframe = File.basename(file,'.html.haml')
+      -  unless wireframe == 'index' || wireframe.match(/^_/)
+        %li= link_to wireframe.titleize, action: wireframe unless wireframe == 'index'

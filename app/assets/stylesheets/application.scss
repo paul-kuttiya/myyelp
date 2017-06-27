@@ -1,3 +1,83 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "whitespace-reset";
+
+@import "footer";
+
+h2 {
+  font-size: 22px;
+  color: #d32323;
+  font-weight: bold;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+header {
+  .nav-padding {
+    padding: 0 5%;
+  }
+  a {
+    color: #fff !important;
+  }
+  .session {
+    margin: 0 20px 0 0;
+  }
+  .container-fluid {
+    padding: 0 5%;
+  }
+}
+
+#searchbar {
+  background-color: #d32323;
+  padding: 10px 5%;
+  a {
+    font-size: 20px;
+  }
+  .input-group {
+    width: 50%;
+  }
+}
+
+#secondary-nav {
+  background: #bd1f1f;
+  a {
+    padding: 5px 10px;
+  }
+  li:hover {
+    background-color: #a71c1c;
+  }
+}
+
+.btn-danger {
+  background-color: #bd1f1f;
+}
+
+.subhead-wrap {
+  margin: 0 0 15px 0;
+  text-align: center;
+  .subheading {
+    font-weight: bold;
+    display: inline;
+    + a {
+      display: inline;
+      font-weight: bold;
+    }
+    + a:hover {
+      cursor: pointer;
+    }
+  }  
+}
+
+
+.wrapper {
+  padding: 50px;
+}
+
+.form-wrap {
+  padding: 0 20px 0 20px;
+  .form-inline {
+    .form-control {
+      width: 49%;
+    }
+  }
+}

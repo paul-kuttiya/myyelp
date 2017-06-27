@@ -1,0 +1,20 @@
+.row.wrapper
+  .form-wrap.col-md-4.col-md-offset-2
+    %h2 Sign Up for Yelp
+    .subhead-wrap
+      .subheading Connect with great local busniesses
+      %a Log In
+    %form
+      .form-group.form-inline
+        %input.form-control{class: "form-control", id: "inlineFormInput", placeholder: "First Name"}
+        %input.form-control.pull-right{class: "form-control", id: "inlineFormInput", placeholder: "Last Name"}
+      .form-group
+        %input.form-control{placeholder: "Email address", type: "email"}
+      .form-group
+        %input.form-control{placeholder: "Password", type: "password"}
+      .form-group
+        %input.form-control{placeholder: "ZIP CODE"}  
+      .form-group
+        %input.btn.btn-block.btn-danger{type: "submit", value: "submit"}
+  .col-md-4
+    %img(src="/tmp/signup_illustration.png")
