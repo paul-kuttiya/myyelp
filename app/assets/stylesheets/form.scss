@@ -1,0 +1,28 @@
+.subhead-wrap {
+  margin: 0 0 15px 0;
+  text-align: center;
+  .subheading {
+    font-weight: bold;
+    display: inline;
+    + a {
+      display: inline;
+      font-weight: bold;
+    }
+    + a:hover {
+      cursor: pointer;
+    }
+  }  
+}
+
+.wrapper {
+  padding: 50px;
+}
+
+.form-wrap {
+  padding: 0 20px 0 20px;
+  .form-inline {
+    .form-control {
+      width: 49%;
+    }
+  }
+}

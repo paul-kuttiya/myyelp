@@ -1,17 +1,18 @@
 .navbar.navbar-default
   #searchbar
     %ul.nav.navbar-nav
-      %a.navbar-brand{:href => "#"} people's brand
+      %a.navbar-brand{:href => "/"}
+        %img(src="/images/yelp_icon.png")
     %ul.nav.navbar-nav.navbar-right.session
       %li
         .btn-nav
           %a.btn.btn-danger.btn-md.navbar-btn{:href => "/register"} Sign up!
-    %form.navbar-form
-      .form-group{:style => "display:inline;"}
-        .input-group{:style => "display:table;"}
-          %input.form-control{:autocomplete => "off", :autofocus => "autofocus", :name => "search", :placeholder => "Search Here", :type => "text"}/
-          %a.input-group-addon{:style => "width:1%;"}
-            %span.glyphicon.glyphicon-search
+    -# %form.navbar-form
+      -# .form-group{:style => "display:inline;"}
+      -#   .input-group{:style => "display:table;"}
+      -#     %input.form-control{:autocomplete => "off", :autofocus => "autofocus", :name => "search", :placeholder => "Search Here", :type => "text"}/
+      -#     %a.input-group-addon{:style => "width:1%;"}
+      -#       %span.glyphicon.glyphicon-search
   #secondary-nav.container-fluid
     .navbar-bottom
       %ul.nav.navbar-nav
