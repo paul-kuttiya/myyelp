@@ -1,0 +1,41 @@
+.listings {
+  .btn {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    background-color: #d32323;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .glyphicon-star {
+    display: block;
+    margin: auto;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  ul.reviews {
+    h2 {
+      text-align: left;
+    }
+
+    li.review-list {
+      padding: 15px 0;
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      h4, .user-ratings {
+        margin: 0 0 10px 0;
+      }
+      p {
+        margin: 0;
+      }
+      date {
+        margin: 0 0 0 5px;
+      }
+    }
+  }
+}
