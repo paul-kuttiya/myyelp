@@ -11,13 +11,6 @@ h2, h3 {
   color: #d32323;
 }
 
-h2 {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0 0 10px;
-  text-align: center;
-}
-
 .btn-danger {
   background-color: #bd1f1f;
 }
@@ -26,4 +19,29 @@ ul.reviews, ul.location {
   margin: 20px 0 0 0;
   padding: 0;
   list-style: none;
+}
+
+img {
+  border-radius: 10%;
+}
+
+//business listing
+
+.info {
+  display: inline-block;
+  .col-md-7 {
+    padding-left: 0;
+  }
+  address {
+    width: 70%;
+    .phone {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.latest-review img {
+  width: 32px;
+  height: 32px;
 }

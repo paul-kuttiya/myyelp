@@ -1,5 +1,5 @@
 .listings {
-  .btn {
+  .btn-stars {
     display: inline-block;
     width: 22px;
     height: 22px;
@@ -9,13 +9,20 @@
       cursor: default;
     }
   }
-
+  
   .glyphicon-star {
     display: block;
     margin: auto;
     color: #fff;
     font-size: 14px;
     font-weight: 800;
+  }
+
+  p.total {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    vertical-align: bottom;
+    font-weight: bold;
   }
 
   ul.reviews {
@@ -34,6 +41,7 @@
         margin: 0;
       }
       date {
+        vertical-align: bottom;
         margin: 0 0 0 5px;
       }
     }

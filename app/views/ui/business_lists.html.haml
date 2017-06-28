@@ -1,0 +1,42 @@
+.row.listings
+  .col-lg-8.col-md-8.col-md-offset-2.col-lg-offset-2
+    %ul.reviews
+      %h2 Businesses
+      %li.review-list
+        .info
+          .media.col-md-7
+            .media-left.media-top
+              %a{:href => "#"}
+                %img.media-object(src="/images/profile-placeholder.png")
+            .media-body
+              %h4.media-heading 1. #{link_to "papaya haha", ""}
+              .user-ratings
+                %span
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                %p.total 433 reviews
+          .col-md-5.address
+            %span.city Woodside
+            %address
+              177-33 UnionTpk
+              Flesh Meadows, NY 11337
+              %span.phone
+                (999) 999-9999
+        .latest-review
+          .media
+            .media-left.media-top
+              %a{:href => "#"}
+                %img.media-object(src="/images/profile-placeholder.png")
+            .media-body
+              Cras sit amet nibh libero, in gravida nulla. 
+              Nulla vel metus scelerisque ante sollicitudin commodo. 
+              Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
+              Fusce condimentum nunc ...#{link_to "Read more", ""}
