@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$list-border: #e6e6e6;
+
 @import "header";
 @import "footer";
 @import "form";
@@ -15,6 +17,20 @@ h2, h3 {
   background-color: #bd1f1f;
 }
 
+.reviews-total.btn.btn-stars {
+  background-color: #f15c00;
+}
+
+.review-list {
+  padding: 15px 0;
+  border-top: 1px solid $list-border;
+  border-bottom: 1px solid $list-border;
+}
+
+.no-padding {
+  padding: 0;
+}
+
 ul.reviews, ul.location {
   margin: 20px 0 0 0;
   padding: 0;
@@ -25,8 +41,10 @@ img {
   border-radius: 10%;
 }
 
-//business listing
 
+
+
+//business listing
 .info {
   display: inline-block;
   .col-md-7 {
@@ -44,4 +62,74 @@ img {
 .latest-review img {
   width: 32px;
   height: 32px;
+}
+
+
+
+//business show page
+.show {
+  .heading {
+    margin: 0 0 50px 0;
+    overflow: hidden;
+  }
+  address {
+    margin: 0;
+    padding: 10px 0;
+    .phone {
+      display: inline-block;
+    }
+  }
+  .write-review {
+    margin: 20px 0 0 0;
+    font-size: 22px;
+  }
+  .customer-reviews {
+    overflow: hidden;
+    h2 {
+      margin: 0;
+      padding: 0 0 10px 15px;
+    }
+    ul {
+      list-style: none;
+      li.review-list {
+        overflow: hidden;
+        .media-heading {
+          name, .short-address {
+            font-size: 14px;
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 5px 0;
+          }
+          name:hover {
+            cursor: pointer;
+          }
+          .review {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            .total {
+              margin: 0;
+              vertical-align: middle;
+            }
+          } 
+        }
+        p {
+          margin: 20px 0 0 0;
+        }
+      }
+    }
+    .location-info {
+      padding-bottom: 100%;
+      margin-bottom: -100%;
+      border-left: 1px solid $list-border;
+      h3 {
+        margin-top: 0;
+      }
+      ul {
+        padding: 0;
+        li {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
 }
