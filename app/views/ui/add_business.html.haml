@@ -1,0 +1,23 @@
+.row
+  .col-md-6.col-lg-6
+    %h3 Add a business
+    %form
+      .form-group
+        %label{:for => "business_name"} Business Name
+        %input.form-control{type: "text", placeholder: "Business Name"}
+      .form-group
+        %label{:for => "address"} Address
+        %input.form-control{type: "text", placeholder: "Address"}
+      .form-group
+        %label{:for => "city"} City
+        %input.form-control{type: "text", placeholder: "City"}
+      .form-group
+        %label{:for => "state"} State
+        %input.form-control{type: "text", placeholder: "State"}
+      .form-group
+        %label{:for => "zip"} Zipcode
+        %input.form-control{type: "tel", placeholder: "Zipcode"}
+      .form-group
+        %label{:for => "phone"} Phone number
+        %input.form-control{type: "tel", placeholder: "Phone number"}
+      %button.btn.btn-primary{:type => "submit"} Submit
