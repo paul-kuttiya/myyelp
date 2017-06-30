@@ -1,0 +1,36 @@
+.row.listings.add-review
+  .col-lg-8.col-md-8
+    %h3 Write a Review
+    .media
+      .media-left.media-top
+        %a{:href => "#"}
+          %img.media-object(src="/images/profile-placeholder.png")
+      .media-body
+        %h4.media-heading
+          %address
+            %p Sakura sushi
+            %p 177-33 UnionTpk
+            %p Flesh Meadows, NY 11337
+            %span.phone
+              (999) 999-9999
+    %form#new-review
+      %fieldset.form-group.ratings-wrap
+        %input(type="radio" class="rating" name="rating" id="rating-5")
+          %label(for="rating-5")
+            %span.glyphicon.glyphicon-star
+        %input(type="radio" class="rating" name="rating" id="rating-4")
+          %label(for="rating-4") 
+            %span.glyphicon.glyphicon-star
+        %input(type="radio" class="rating" name="rating" id="rating-3")
+          %label(for="rating-3")
+            %span.glyphicon.glyphicon-star
+        %input(type="radio" class="rating" name="rating" id="rating-2")
+          %label(for="rating-2") 
+            %span.glyphicon.glyphicon-star
+        %input(type="radio" class="rating" name="rating" id="rating-1")
+          %label(for="rating-1") 
+            %span.glyphicon.glyphicon-star
+      .form-group.write-review
+        %label{:for => "exampleTextarea"} Your Review
+        %textarea#exampleTextarea.form-control{rows: 6, columns: 3, placeholder: "Your review for business"}
+      %button.btn.btn-primary{:type => "submit"} Submit

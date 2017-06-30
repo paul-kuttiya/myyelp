@@ -2,6 +2,8 @@
 @import "bootstrap";
 
 $list-border: #e6e6e6;
+$red: #CC3300;
+$orange: #f15c00;
 
 @import "header";
 @import "footer";
@@ -18,7 +20,7 @@ h2, h3 {
 }
 
 .reviews-total.btn.btn-stars {
-  background-color: #f15c00;
+  background-color: $orange;
 }
 
 .review-list {
@@ -132,4 +134,67 @@ img {
       }
     }
   }
+}
+
+.add-review {
+  .media {
+    padding: 10px 0;
+    border-top: 1px solid $list-border;
+  }
+  address {
+    font-size: 14px;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+//new review form
+form#new-review {
+  //radio
+  .glyphicon-star {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 5px;
+  }
+
+  input[type="radio"] {
+    display:none;
+  }
+
+  input[type="radio"] + label {
+    background-color: $list-border;
+    border-radius: 15%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  input[type="radio"]:checked + label,
+  input[type="radio"]:checked ~ label {
+    background-color:$red;
+  }
+
+  input[type="radio"]:hover ~ label {
+    background-color:$orange;
+  }
+
+  .ratings-wrap {
+    float: left;
+  }
+
+  .write-review {
+    width: 100%;
+    display: inline-block;
+  }
+
+  //** switch input order to be albe to use general selector ~
+  fieldset:not(:checked) > label {
+    float: right;
+    margin: 0 5px 0 0;
+  }
+  //end radio//
 }
