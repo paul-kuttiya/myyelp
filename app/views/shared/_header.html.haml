@@ -5,8 +5,11 @@
         %img(src="/images/yelp_icon.png")
     %ul.nav.navbar-nav.navbar-right.session
       %li
-        .btn-nav
-          %a.btn.btn-danger.btn-md.navbar-btn{:href => "/register"} Sign up!
+        -if logged_in?
+          %h4= "#{current_user.first_name} #{current_user.last_name}"
+        -else
+          =link_to "Sign up", signup_path, class: "btn btn-danger btn-md navbar-btn"
+          
     -# %form.navbar-form
     -#   .form-group{:style => "display:inline;"}
     -#     .input-group{:style => "display:table;"}
@@ -22,4 +25,4 @@
           %a{:href => "#"} Recent Reviews  
       %ul.nav.navbar-nav.navbar-right.session
         %li
-          %a{:href => "/login"} Log in!
+          = link_to "Log In", "" if !logged_in?

@@ -1,0 +1,33 @@
+.row.listings
+  .col-lg-8.col-md-8.col-md-offset-2.col-lg-offset-2
+    %ul.reviews
+      %h2 Recent Review
+      -5.times do
+        %li.review-list
+          .media
+            .media-left.media-top
+              %a{:href => "#"}
+                %img.media-object(src="/images/profile-placeholder.png")
+            .media-body
+              %h4.media-heading You wrote a review for #{link_to "papaya haha", ""}
+              .user-ratings
+                %span
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                  .btn.btn-stars.btn-md
+                    %span.glyphicon.glyphicon-star
+                %date 6/13/2017
+              %p
+                Cras sit amet nibh libero, in gravida nulla. 
+                Nulla vel metus scelerisque ante sollicitudin commodo. 
+                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
+                Fusce condimentum nunc ac nisi vulputate fringilla. 
+                Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. 
+                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                Donec lacinia congue felis in faucibus. ...#{link_to "Read more", ""}
