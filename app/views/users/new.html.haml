@@ -3,7 +3,7 @@
     %h2 Sign Up for Yelp
     .subhead-wrap
       .subheading Connect with great local busniesses
-      %a Log In
+      = link_to "Log In", login_path
     = bootstrap_form_for(@user) do |f|
       =f.text_field :first_name, hide_label: true, placeholder: "First Name"
       =f.text_field :last_name, hide_label: true, placeholder: "Last Name"

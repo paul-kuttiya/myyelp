@@ -14,13 +14,13 @@ describe UsersController do
 
   describe "POST create" do
     context "valid inputs" do
-      let(:user) {Fabricate.attributes_for(:user)}
+      let(:user) { Fabricate.attributes_for(:user) }
       
       before do
         post :create, user: user
       end
 
-      it "saves to DB" do
+      it "saves user to DB" do
         expect(User.count).to eq 1
       end
 
