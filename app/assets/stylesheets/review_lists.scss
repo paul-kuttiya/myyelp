@@ -1,14 +1,20 @@
 .listings {
-  .btn-stars {
+  .btn-stars, .btn-stars-grey {
     display: inline-block;
     width: 22px;
     height: 22px;
     padding: 2px;
-    background-color: #d32323;
     &:hover {
       cursor: default;
     }
   }
+  .btn-stars {
+    background-color: #d32323;
+  }
+  .btn-stars-grey {
+    background-color: $list-border;
+  }
+
   
   .glyphicon-star {
     display: block;

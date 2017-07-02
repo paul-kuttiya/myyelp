@@ -2,26 +2,22 @@
   .col-lg-8.col-md-8.col-md-offset-2.col-lg-offset-2
     %ul.reviews
       %h2 Recent Review
-      -5.times do
+      - @reviews.each do |review|
         %li.review-list
           .media
             .media-left.media-top
-              %a{:href => "#"}
+              = link_to "" do
                 %img.media-object(src="/images/profile-placeholder.png")
             .media-body
-              %h4.media-heading You wrote a review for #{link_to "papaya haha", ""}
+              %h4.media-heading= (link_to "#{review.user_name}", signup_path) + " wrote a review for " + (link_to "#{review.business_name}", signup_path)
               .user-ratings
                 %span
-                  .btn.btn-stars.btn-md
-                    %span.glyphicon.glyphicon-star
-                  .btn.btn-stars.btn-md
-                    %span.glyphicon.glyphicon-star
-                  .btn.btn-stars.btn-md
-                    %span.glyphicon.glyphicon-star
-                  .btn.btn-stars.btn-md
-                    %span.glyphicon.glyphicon-star
-                  .btn.btn-stars.btn-md
-                    %span.glyphicon.glyphicon-star
+                  - review.rating.times do
+                    .btn.btn-stars.btn-md
+                      %span.glyphicon.glyphicon-star
+                  - (5 - review.rating).times do
+                    .btn.btn-stars-grey.btn-md
+                      %span.glyphicon.glyphicon-star
                 %date 6/13/2017
               %p
                 Cras sit amet nibh libero, in gravida nulla. 
