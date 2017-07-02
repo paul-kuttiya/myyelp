@@ -1,7 +1,7 @@
 .navbar.navbar-default
   #searchbar
     %ul.nav.navbar-nav
-      %a.navbar-brand{:href => "/"}
+      = link_to root_path, class: "navbar-brand" do
         %img(src="/images/yelp_icon.png")
     %ul.nav.navbar-nav.navbar-right.session
       %li
