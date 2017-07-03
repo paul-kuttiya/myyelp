@@ -25,7 +25,7 @@ describe ReviewsController do
 
       before do
         session[:user_id] = user.id
-        get :new, { id: business.id }
+        get :new, { business_id: business.id }
       end
       
       it "finds business" do
@@ -43,7 +43,7 @@ describe ReviewsController do
 
     context "non user" do
       it "redirects to login" do
-        get :new, { id: 1 }
+        get :new, { business_id: 1 }
         expect(response).to redirect_to login_path
       end
     end
@@ -55,7 +55,7 @@ describe ReviewsController do
       let(:business) { Fabricate(:business) }
 
       it "redirects to login" do
-        post :create, { id: business.id, review: review }
+        post :create, { business_id: business.id, review: review }
 
         expect(response).to redirect_to login_path
       end
@@ -68,7 +68,7 @@ describe ReviewsController do
 
       before do
         session[:user_id] = user.id
-        post :create, { id: business.id, review: review }
+        post :create, { business_id: business.id, review: review }
       end
 
       it "constructs review instance" do
@@ -99,9 +99,95 @@ describe ReviewsController do
         business = Fabricate(:business)
         review = Fabricate.attributes_for(:review, rating: nil)
 
-        post :create, { id: business.id, review: review }
-        expect(response).to redirect_to review_business_path
+        post :create, { business_id: business.id, review: review }
+        expect(response).to redirect_to new_business_review_path
       end
     end
-  end 
+  end
+
+  describe "GET edit" do
+    let(:business) { Fabricate(:business) }
+    let(:review) { Fabricate(:review) }
+
+    describe "non-user" do
+      it "redirects to login page" do
+        get :edit, { business_id: business.id, id: review.id }
+        expect(response).to redirect_to login_path
+      end
+    end
+    
+    describe "user" do
+      it "finds review" do
+        user = Fabricate(:user)
+        session[:user_id] = user.id
+        get :edit, { business_id: business.id, id: review.id }
+        expect(assigns[:review]).to eq review
+      end
+    end
+  end
+
+  describe "PATCH update" do
+    let(:business) { Fabricate(:business) }
+    let(:review) { Fabricate(:review) }
+
+    describe "non user" do
+      it "redirects to login page" do
+        patch :update, { business_id: business.id, id: review.id }
+        expect(response).to redirect_to login_path
+      end
+    end
+
+    describe "user" do
+      let(:user) { Fabricate(:user) }
+
+      before do
+        session[:user_id] = user.id
+      end
+
+      it "finds review" do
+        business = Fabricate(:business)
+        review = Fabricate(:review, user: user, business: business)
+        patch :update, { business_id: business.id, id: review.id, review: Fabricate.attributes_for(:review) }
+        
+        expect(Review.find(review.id)).to eq review
+      end
+
+      context "valid inputs" do
+        let(:business) { Fabricate(:business) }
+        let(:review) { Fabricate(:review) }
+        let(:update_review) { Fabricate.attributes_for(:review) }
+
+        before do
+          patch :update, { business_id: business.id, id: review.id, review: update_review }
+        end
+
+        it "update attributes" do
+          expect(assigns[:review].rating).to eq update_review["rating"]
+          expect(assigns[:review].description).to eq update_review["description"]
+        end
+
+        it "redirects to business page" do
+          expect(response).to redirect_to business
+        end
+      end
+
+      context "invalid inputs" do
+        let(:business) { Fabricate(:business) }
+        let(:review) { Fabricate(:review) }
+        let(:update_review) { Fabricate.attributes_for(:review, rating: nil) }
+
+        before do
+          patch :update, { business_id: business.id, id: review.id, review: update_review }
+        end
+
+        it "flashes message" do
+          expect(flash[:danger]).to be_present
+        end
+
+        it "redirects to edit review page" do
+          expect(response).to redirect_to edit_business_review_path(business, review)
+        end
+      end
+    end
+  end
 end

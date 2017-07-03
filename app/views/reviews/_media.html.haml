@@ -1,0 +1,11 @@
+.media
+  .media-left.media-top
+    %a{:href => "#"}
+      %img.media-object(src="/images/profile-placeholder.png")
+  .media-body
+    %h4.media-heading
+      %address
+        %p= business.name 
+        %p #{business.address}
+        %p #{business.city}, #{business.zip}
+        %span.phone= business.phone

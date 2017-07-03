@@ -1,0 +1,9 @@
+%fieldset.form-group.ratings-wrap
+  -(1..5).to_a.reverse.each do |n|
+    = f.radio_button :rating, n, class: "rating", id: "rating-#{n}"
+    %label(for="rating-#{n}")
+      %span.glyphicon.glyphicon-star
+.form-group.write-review    
+  = f.label "Your Review"
+  = f.text_area :description, class: "form-control", placeholder: "Your review for business"    
+= f.submit "Submit", class: "btn btn-primary"

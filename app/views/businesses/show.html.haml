@@ -10,5 +10,11 @@
           %p #{@business.city} #{@business.state} #{@business.zip}
           %span.phone= @business.phone
     .col-lg-6.col-md-6.write-review
-      = link_to "Write a review", review_business_path(@business), class: "btn btn-danger btn-lg"
+      - if current_user.existing_review?(@business)
+        = link_to "Update a review",
+          edit_business_review_path(@business, current_user.existing_review?(@business)), 
+          class: "btn btn-danger btn-lg"
+      - else
+        = link_to "Write a review", new_business_review_path(@business), 
+          class: "btn btn-danger btn-lg"
   = render "reviews", collection: @reviews

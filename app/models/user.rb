@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def total_reviews
     reviews.size
   end
+
+  def existing_review?(business)
+    reviews.find_by(business: business)
+  end
 end

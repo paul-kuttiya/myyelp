@@ -3,7 +3,7 @@
     %h3 Write a Review
     = render 'media', business: @business
 
-    = form_for @review, method: "post", 
-      url: business_reviews_path, 
+    = form_for @review, method: "patch", 
+      url: business_review_path(@business, @review), 
       class: "new-review" do |f|
       = render 'form', f: f
