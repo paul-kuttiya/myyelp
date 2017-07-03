@@ -14,4 +14,3 @@
                 = render '/shared/stars', star: review
                 %date= format_date(review.created_at)
               %p #{display_words(review.description)} #{link_to "Read more...", review.business}
-                
