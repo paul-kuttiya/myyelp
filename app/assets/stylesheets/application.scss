@@ -150,51 +150,53 @@ img {
 }
 
 //new review form
-form#new-review {
-  //radio
-  .glyphicon-star {
-    display: inline-block;
-    vertical-align: middle;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 800;
-    padding: 5px;
-  }
-
-  input[type="radio"] {
-    display:none;
-  }
-
-  input[type="radio"] + label {
-    background-color: $list-border;
-    border-radius: 15%;
-    &:hover {
-      cursor: pointer;
+.add-review {
+  form {
+    //radio
+    .glyphicon-star {
+      display: inline-block;
+      vertical-align: middle;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      padding: 5px;
     }
-  }
 
-  input[type="radio"]:checked + label,
-  input[type="radio"]:checked ~ label {
-    background-color:$red;
-  }
+    input[type="radio"] {
+      display:none;
+    }
 
-  input[type="radio"]:hover ~ label {
-    background-color:$orange;
-  }
+    input[type="radio"] + label {
+      background-color: $list-border;
+      border-radius: 15%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
-  .ratings-wrap {
-    float: left;
-  }
+    input[type="radio"]:checked + label,
+    input[type="radio"]:checked ~ label {
+      background-color:$red;
+    }
+    
+    input[type="radio"]:hover ~ label {
+      background-color:$orange;
+    }
 
-  .write-review {
-    width: 100%;
-    display: inline-block;
-  }
+    .ratings-wrap {
+      float: left;
+    }
 
-  //** switch input order to be albe to use general selector ~
-  fieldset:not(:checked) > label {
-    float: right;
-    margin: 0 5px 0 0;
+    .write-review {
+      width: 100%;
+      display: inline-block;
+    }
+
+    //** switch input order to be albe to use general selector ~
+    fieldset:not(:checked) > label {
+      float: right;
+      margin: 0 5px 0 0;
+    }
+    //end radio//
   }
-  //end radio//
 }

@@ -62,4 +62,21 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET show" do
+    let(:user) { Fabricate(:user) }
+    
+    it "finds user" do
+      get :show, { id: user.id }
+
+      expect(assigns[:user]).to eq user
+    end
+
+    it "has review" do
+      review = Fabricate(:review, user: user)
+
+      get :show, { id: user.id }
+      expect(assigns[:user].reviews).to match_array([review])
+    end
+  end
 end

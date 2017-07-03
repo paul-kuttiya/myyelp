@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20170701195311) do
   enable_extension "plpgsql"
 
   create_table "businesses", force: true do |t|
-    t.string "name"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "phone"
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: true do |t|
@@ -43,4 +45,5 @@ ActiveRecord::Schema.define(version: 20170701195311) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
 end

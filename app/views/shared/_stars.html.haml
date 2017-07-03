@@ -1,0 +1,7 @@
+%span
+  - star.rating.times do
+    .btn.btn-stars.btn-md
+      %span.glyphicon.glyphicon-star
+  - (5 - star.rating).times do
+    .btn.btn-stars-grey.btn-md
+      %span.glyphicon.glyphicon-star

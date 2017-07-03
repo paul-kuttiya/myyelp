@@ -20,9 +20,9 @@
     .navbar-bottom
       %ul.nav.navbar-nav
         %li
-          %a{:href => "#"} View Business
+          = link_to "View Business", businesses_path
         %li
-          %a{:href => "#"} Recent Reviews  
+          = link_to "Recent Reviews", reviews_path
       %ul.nav.navbar-nav.navbar-right.session
         %li
           - if logged_in?

@@ -11,11 +11,11 @@ User.create(
   Fabricate(:business)
 end
 
-50.times do
+100.times do
   Fabricate(:review)
 end
 
 Review.all.each do |r|
-  n = (2..30).to_a.sample
+  n = (1..365).to_a.sample
   r.update(created_at: n.days.ago) if r.id != 1
 end

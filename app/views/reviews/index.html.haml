@@ -6,24 +6,12 @@
         %li.review-list
           .media
             .media-left.media-top
-              = link_to "" do
+              = link_to review.user do
                 %img.media-object(src="/images/profile-placeholder.png")
             .media-body
-              %h4.media-heading= (link_to "#{review.user_name}", signup_path) + " wrote a review for " + (link_to "#{review.business_name}", signup_path)
+              %h4.media-heading= (link_to "#{review.user_name}", review.user) + " wrote a review for " + (link_to "#{review.business_name}", review.business)
               .user-ratings
-                %span
-                  - review.rating.times do
-                    .btn.btn-stars.btn-md
-                      %span.glyphicon.glyphicon-star
-                  - (5 - review.rating).times do
-                    .btn.btn-stars-grey.btn-md
-                      %span.glyphicon.glyphicon-star
-                %date 6/13/2017
-              %p
-                Cras sit amet nibh libero, in gravida nulla. 
-                Nulla vel metus scelerisque ante sollicitudin commodo. 
-                Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. 
-                Fusce condimentum nunc ac nisi vulputate fringilla. 
-                Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. 
-                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                Donec lacinia congue felis in faucibus. ...#{link_to "Read more", ""}
+                = render '/shared/stars', star: review
+                %date= format_date(review.created_at)
+              %p #{display_words(review.description)} #{link_to "Read more...", review.business}
+                

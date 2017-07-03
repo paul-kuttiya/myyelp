@@ -1,0 +1,47 @@
+.row.listings.add-review
+  .col-lg-8.col-md-8
+    %h3 Write a Review
+    .media
+      .media-left.media-top
+        %a{:href => "#"}
+          %img.media-object(src="/images/profile-placeholder.png")
+      .media-body
+        %h4.media-heading
+          %address
+            %p= @business.name 
+            %p #{@business.address}
+            %p #{@business.city}, #{@business.zip}
+            %span.phone= @business.phone
+
+    -# %form.new-review
+    -#   %fieldset.form-group.ratings-wrap
+    -#     %input(type="radio" class="rating" name="rating" id="rating-5")
+    -#     %label(for="rating-5")
+    -#       %span.glyphicon.glyphicon-star
+    -#     %input(type="radio" class="rating" name="rating" id="rating-4")
+    -#     %label(for="rating-4") 
+    -#       %span.glyphicon.glyphicon-star
+    -#     %input(type="radio" class="rating" name="rating" id="rating-3")
+    -#     %label(for="rating-3")
+    -#       %span.glyphicon.glyphicon-star
+    -#     %input(type="radio" class="rating" name="rating" id="rating-2")
+    -#     %label(for="rating-2") 
+    -#       %span.glyphicon.glyphicon-star
+    -#     %input(type="radio" class="rating" name="rating" id="rating-1")
+    -#     %label(for="rating-1") 
+    -#       %span.glyphicon.glyphicon-star
+    -#   .form-group.write-review
+    -#     %label{:for => "exampleTextarea"} Your Review
+    -#     %textarea#exampleTextarea.form-control{rows: 6, columns: 3, placeholder: "Your review for business"}
+    -#   %button.btn.btn-primary{:type => "submit"} Submit
+
+    = form_for @review, method: "post", url: review_business_path ,class: "new-review" do |f|
+      %fieldset.form-group.ratings-wrap
+        -(1..5).to_a.reverse.each do |n|
+          = f.radio_button :rating, n, class: "rating", id: "rating-#{n}"
+          %label(for="rating-#{n}")
+            %span.glyphicon.glyphicon-star
+      .form-group.write-review    
+        = f.label "Your Review"
+        = f.text_area :description, class: "form-control", placeholder: "Your review for business"    
+      = f.submit "Submit", class: "btn btn-primary"

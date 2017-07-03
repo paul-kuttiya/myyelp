@@ -1,0 +1,14 @@
+.row.listings.show
+  .heading
+    .col-lg-6.col-md-6
+      %h2.display-2= @business.name
+      .user-ratings
+        = render '/shared/stars', star: @business
+        %p.total #{@business.reviews_count} reviews
+        %address
+          %p= @business.address
+          %p #{@business.city} #{@business.state} #{@business.zip}
+          %span.phone= @business.phone
+    .col-lg-6.col-md-6.write-review
+      = link_to "Write a review", review_business_path(@business), class: "btn btn-danger btn-lg"
+  = render "reviews", collection: @reviews

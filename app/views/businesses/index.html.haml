@@ -1,0 +1,30 @@
+.row.listings
+  .col-lg-8.col-md-8.col-md-offset-2.col-lg-offset-2
+    %ul.reviews
+      %h2 Businesses
+      - @businesses.each do |business|
+        %li.review-list
+          .info
+            .media.col-md-7
+              .media-left.media-top
+                = link_to business do
+                  %img.media-object(src="/images/profile-placeholder.png")
+              .media-body
+                %h4.media-heading #{link_to business.name, business}
+                .user-ratings
+                = render "/shared/stars", star: business
+                %p.total #{business.reviews_count} reviews
+            .col-md-5.address
+              %span.city= business.city
+              %address 
+                #{business.address} 
+                #{business.city}, #{business.state} 
+                #{business.zip}
+                %span.phone= business.phone
+          .latest-review
+            .media
+              .media-left.media-top
+                = link_to business.last_reviewer do
+                  %img.media-object(src="/images/profile-placeholder.png")
+              .media-body
+                #{display_words(business.last_review)} ...#{link_to "Read more", business}
