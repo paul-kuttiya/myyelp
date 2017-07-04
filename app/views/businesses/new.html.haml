@@ -1,0 +1,11 @@
+.row
+  .col-md-6.col-lg-6
+    %h3 Add a business
+    = bootstrap_form_for @business do |f|
+      = f.text_field :name, label: "Business Name", placeholder: "Business Name"
+      = f.text_field :address, label: "Address", placeholder: "Address"
+      = f.text_field :city, label: "City", placeholder: "City"
+      = f.text_field :state, label: "State", placeholder: "State"
+      = f.text_field :zip, label: "Zipcode", placeholder: "Zipcode"
+      = f.telephone_field :phone, label: "Phone number", placeholder: "Phone number"
+      = f.submit "Submit", class: "btn btn-primary"

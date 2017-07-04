@@ -48,4 +48,22 @@ describe BusinessesController do
       expect(assigns[:reviews]).to eq []
     end
   end
+
+  describe "GET new" do
+    describe "non user" do
+      it "redirects to login page" do
+        get :new
+        expect(response).to redirect_to login_path
+      end
+    end
+
+    describe "user" do
+      it "render new business form" do
+        user = Fabricate(:user)
+        session[:user_id] = user.id
+        get :new
+        expect(response).to render_template :new
+      end
+    end
+  end
 end
