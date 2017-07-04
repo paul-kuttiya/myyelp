@@ -51,18 +51,74 @@ describe BusinessesController do
 
   describe "GET new" do
     describe "non user" do
-      it "redirects to login page" do
-        get :new
-        expect(response).to redirect_to login_path
+      it_behaves_like "required signed in user" do
+        let(:action) { get :new }
       end
     end
 
     describe "user" do
       it "render new business form" do
-        user = Fabricate(:user)
-        session[:user_id] = user.id
+        set_user
         get :new
         expect(response).to render_template :new
+      end
+    end
+  end
+
+  describe "POST create" do
+    describe "non user" do
+      it_behaves_like "required signed in user" do
+        let(:action) { post :create }
+      end
+    end
+
+    describe "user" do
+      let(:business) { Fabricate.attributes_for(:business) }
+
+      before do
+        set_user
+        post :create, business: business
+      end
+
+      it "sets business" do
+        post :create, business: business
+
+        expect(assigns[:business]).to be_instance_of(Business)
+      end
+
+      context "valid inputs" do
+        it "saves business to db" do
+          expect(Business.first).to eq assigns[:business]
+        end
+
+        it "flashes success message" do
+          expect(flash[:success]).to be_present
+        end
+
+        it "redirects to business page" do
+          expect(response).to redirect_to assigns[:business]
+        end
+      end
+
+      context "invalid inputs" do
+        let(:business) { Fabricate.attributes_for(:business, address: nil) }
+
+        before do
+          set_user
+          post :create, business: business
+        end
+
+        it "renders new business form" do
+          expect(response).to render_template :new
+        end
+
+        it "shows form errors" do
+          expect(assigns[:business].errors.full_messages[0]).to be_present
+        end
+
+        it "does not save to db" do
+          expect(Business.count).to eq 0
+        end
       end
     end
   end

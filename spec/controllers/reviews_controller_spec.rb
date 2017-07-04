@@ -24,7 +24,7 @@ describe ReviewsController do
       let(:business) { Fabricate(:business) }
 
       before do
-        session[:user_id] = user.id
+        set_user(user)
         get :new, { business_id: business.id }
       end
       
@@ -42,9 +42,8 @@ describe ReviewsController do
     end
 
     context "non user" do
-      it "redirects to login" do
-        get :new, { business_id: 1 }
-        expect(response).to redirect_to login_path
+      it_behaves_like "required signed in user" do
+        let(:action) { get :new, { business_id: 1 } }
       end
     end
   end
@@ -54,10 +53,8 @@ describe ReviewsController do
       let(:review) { Fabricate.attributes_for(:review) }
       let(:business) { Fabricate(:business) }
 
-      it "redirects to login" do
-        post :create, { business_id: business.id, review: review }
-
-        expect(response).to redirect_to login_path
+      it_behaves_like "required signed in user" do
+        let(:action) { post :create, { business_id: business.id, review: review } }
       end
     end
 
@@ -67,7 +64,7 @@ describe ReviewsController do
       let(:review) { Fabricate.attributes_for(:review, user: user, business: business) }
 
       before do
-        session[:user_id] = user.id
+        set_user(user)
         post :create, { business_id: business.id, review: review }
       end
 
@@ -88,13 +85,11 @@ describe ReviewsController do
           expect(response).to redirect_to business
         end
       end
-
     end
     
     context "invalid input" do
       it "redirects to new review page" do
-        user = Fabricate(:user)
-        session[:user_id] = user.id
+        set_user
 
         business = Fabricate(:business)
         review = Fabricate.attributes_for(:review, rating: nil)
@@ -110,16 +105,14 @@ describe ReviewsController do
     let(:review) { Fabricate(:review) }
 
     describe "non-user" do
-      it "redirects to login page" do
-        get :edit, { business_id: business.id, id: review.id }
-        expect(response).to redirect_to login_path
+      it_behaves_like "required signed in user" do
+        let(:action) { get :edit, { business_id: business.id, id: review.id } }
       end
     end
     
     describe "user" do
       it "finds review" do
-        user = Fabricate(:user)
-        session[:user_id] = user.id
+        set_user
         get :edit, { business_id: business.id, id: review.id }
         expect(assigns[:review]).to eq review
       end
@@ -131,9 +124,8 @@ describe ReviewsController do
     let(:review) { Fabricate(:review) }
 
     describe "non user" do
-      it "redirects to login page" do
-        patch :update, { business_id: business.id, id: review.id }
-        expect(response).to redirect_to login_path
+      it_behaves_like "required signed in user" do
+        let(:action) { patch :update, { business_id: business.id, id: review.id } }
       end
     end
 
@@ -141,7 +133,7 @@ describe ReviewsController do
       let(:user) { Fabricate(:user) }
 
       before do
-        session[:user_id] = user.id
+        set_user(user)
       end
 
       it "finds review" do

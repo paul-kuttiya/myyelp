@@ -2,6 +2,8 @@ class Business < ActiveRecord::Base
   has_many :reviews
 
   default_scope { order('created_at DESC') }
+  validates_presence_of :name, :address, :city, :state, :zip, :phone 
+  validates_uniqueness_of :address, :phone
 
   def reviews_count
     reviews.size

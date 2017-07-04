@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :require_user, only: [:new]
+  before_action :require_user, only: [:new, :create]
 
   def index
     @businesses = Business.limit(10)
@@ -15,11 +15,21 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = Business.new()
+    @business = Business.new(business_params)
+    
+    if @business.save
+      flash[:success] = "Successfully created #{@business.name}!"
+      redirect_to @business
+    else
+      render :new
+    end
   end
 
   private
   def business_params
     params.require(:business).permit!
+  end
+
+  def existing_business
   end
 end
