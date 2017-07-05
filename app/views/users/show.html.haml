@@ -3,6 +3,14 @@
     .profile-image
       %img(src="/images/profile-placeholder.png")
     %h3 #{@user.first_name} 's Profile
+    %ul.star-listing
+      - @user.rating_details.each do |star, total|
+        %li
+          %span
+            - star.times do
+              .btn.btn-stars.btn-md
+                %span.glyphicon.glyphicon-star
+          %span= total
   .col-lg-6.col-md-6
     %h1= @user.full_name
     -# %h4 New York, NY
@@ -11,17 +19,4 @@
     %p.total #{@user.reviews.size} Reviews
     %ul.reviews
       %h2 Recent Review
-      - @user.reviews.each do |review|
-        %li.review-list.recent
-          .media
-            .media-left.media-top
-              = link_to review.business do
-                %img.media-object(src="/images/profile-placeholder.png")
-            .media-body
-              %h4.media-heading #{link_to review.business_name, review.business}
-              %p= review.business.address
-              %p #{review.business.city} #{review.business.zip}
-          .user-ratings
-            = render '/shared/stars', star: review
-            %date= format_date(review.created_at)
-          %p #{review.description}
+      = render partial: 'review', collection: @user.reviews

@@ -15,16 +15,19 @@
                 = render "/shared/stars", star: business
                 %p.total #{business.reviews_count} reviews
             .col-md-5.address
-              %span.city= business.city
-              %address 
-                #{business.address} 
-                #{business.city}, #{business.state} 
+              -# %span.city #{business.city}, #{business.state}
+              %address
+                #{business.address}
+                %br
+                #{business.city}, #{business.state}
+                %br
                 #{business.zip}
                 %span.phone= business.phone
-          .latest-review
-            .media
-              .media-left.media-top
-                = link_to business.last_reviewer do
-                  %img.media-object(src="/images/profile-placeholder.png")
-              .media-body
-                #{display_words(business.last_review)} ...#{link_to "Read more", business}
+          - if business.last_reviewer
+            .latest-review
+              .media
+                .media-left.media-top
+                  = link_to business.last_reviewer do
+                    %img.media-object(src="/images/profile-placeholder.png")
+                .media-body
+                  #{display_words(business.last_review)} ...#{link_to "Read more", business}

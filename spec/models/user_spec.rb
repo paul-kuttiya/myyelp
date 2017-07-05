@@ -32,4 +32,14 @@ describe User do
       expect(user.existing_review?(business)).to eq review
     end
   end
+
+  describe "#rating_details" do
+    it "returns a hash of key value as {stars: rating_count} for user" do
+      user = Fabricate(:user)
+      review1 = Fabricate(:review, user: user, rating: 5)
+      review2 = Fabricate(:review, user: user, rating: 5)
+      result = { 5 => 2, 4 => 0, 3 => 0, 2 => 0, 1 => 0 }
+      expect(user.rating_details).to eq result
+    end
+  end
 end  

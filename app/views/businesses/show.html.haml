@@ -10,7 +10,7 @@
           %p #{@business.city} #{@business.state} #{@business.zip}
           %span.phone= @business.phone
     .col-lg-6.col-md-6.write-review
-      - if current_user.existing_review?(@business)
+      - if logged_in? && current_user.existing_review?(@business)
         = link_to "Update a review",
           edit_business_review_path(@business, current_user.existing_review?(@business)), 
           class: "btn btn-danger btn-lg"

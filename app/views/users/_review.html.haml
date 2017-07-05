@@ -1,0 +1,13 @@
+%li.review-list.recent
+  .media
+    .media-left.media-top
+      = link_to review.business do
+        %img.media-object(src="/images/profile-placeholder.png")
+    .media-body
+      %h4.media-heading #{link_to review.business_name, review.business}
+      %p= review.business.address
+      %p #{review.business.city} #{review.business.zip}
+  .user-ratings
+    = render '/shared/stars', star: review
+    %date= format_date(review.created_at)
+  %p #{review.description}

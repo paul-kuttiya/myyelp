@@ -22,7 +22,23 @@
     vertical-align: bottom;
     margin: 0 0 0 2px;
     display: inline-block;
-  } 
+  }
+
+  ul.star-listing {
+    list-style: none;
+    padding: 0;
+    li {
+      position: relative;
+      padding: 5px 0;
+      width: 65%;
+      margin: 0 auto;
+      span + span {
+        position: absolute;
+        right: 5px;
+        font-weight: 800;
+      }
+    }
+  }
   
   ul.location {
     padding: 0 15px;

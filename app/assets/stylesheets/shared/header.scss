@@ -17,6 +17,23 @@ header {
   .container-fluid {
     padding: 0 5%;
   }
+  .header-profile {
+    padding: 10px 0;
+    overflow: none;
+    width: 100%;
+    img {
+      width: 36px;
+      height: 36px;
+      float: left;
+      margin: 0 5px 0 0;
+    }
+    h5 {
+      word-wrap: break-word;
+      float: left;
+      width: 50%;
+      color: #fff;
+    }
+  }
 }
 
 .navbar-brand {
@@ -34,6 +51,9 @@ header {
   background-size: cover;
   padding: 10px 5%;
   height: 80px;
+  li {
+    width: 100%;
+  }
   a {
     font-size: 20px;
   }

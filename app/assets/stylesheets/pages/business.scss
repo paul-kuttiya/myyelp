@@ -1,0 +1,104 @@
+.user-ratings + p {
+  word-wrap: break-word;
+}
+
+//business listing
+.info {
+  display: inline-block;
+  .col-md-7 {
+    padding-left: 0;
+  }
+  address {
+    width: 70%;
+    .phone {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.latest-review img {
+  width: 32px;
+  height: 32px;
+}
+
+//business show page
+.show {
+  .heading {
+    margin: 0 0 50px 0;
+    overflow: hidden;
+  }
+  address {
+    margin: 0;
+    padding: 10px 0;
+    .phone {
+      display: inline-block;
+    }
+  }
+  .write-review {
+    margin: 20px 0 0 0;
+    font-size: 22px;
+  }
+  .customer-reviews {
+    overflow: hidden;
+    h2 {
+      margin: 0;
+      padding: 0 0 10px 15px;
+    }
+    ul {
+      list-style: none;
+      li.review-list {
+        overflow: hidden;
+        .media-heading {
+          name, .short-address {
+            font-size: 14px;
+            display: inline-block;
+            width: 100%;
+            margin: 0 0 5px 0;
+          }
+          name:hover {
+            cursor: pointer;
+          }
+          .review {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            .total {
+              margin: 0;
+              vertical-align: middle;
+            }
+          }
+        }
+        p {
+          margin: 20px 0 0 0;
+        }
+      }
+    }
+    .location-info {
+      padding-bottom: 100%;
+      margin-bottom: -100%;
+      border-left: 1px solid $list-border;
+      h3 {
+        margin-top: 0;
+      }
+      ul {
+        padding: 0;
+        li {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+.add-review {
+  .media {
+    padding: 10px 0;
+    border-top: 1px solid $list-border;
+  }
+  address {
+    font-size: 14px;
+    p {
+      margin: 0;
+    }
+  }
+}

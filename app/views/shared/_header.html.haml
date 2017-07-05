@@ -6,7 +6,9 @@
     %ul.nav.navbar-nav.navbar-right.session
       %li
         -if logged_in?
-          %h4= "#{current_user.first_name} #{current_user.last_name}"
+          .header-profile
+            %img(src="/images/profile-placeholder.png")
+            %h5= "#{current_user.first_name}"
         -else
           =link_to "Sign up", signup_path, class: "btn btn-danger btn-md navbar-btn"
           
@@ -19,10 +21,10 @@
   #secondary-nav.container-fluid
     .navbar-bottom
       %ul.nav.navbar-nav
-        %li
-          = link_to "View Business", businesses_path
-        %li
-          = link_to "Recent Reviews", reviews_path
+        %li= link_to "View Business", businesses_path
+        %li= link_to "Recent Reviews", reviews_path
+        - if logged_in?
+          %li= link_to "New business", new_business_path
       %ul.nav.navbar-nav.navbar-right.session
         %li
           - if logged_in?

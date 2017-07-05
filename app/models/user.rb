@@ -13,6 +13,17 @@ class User < ActiveRecord::Base
     reviews.size
   end
 
+  def rating_details
+    result = { 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 }
+    user_ratings = reviews.map(&:rating)
+    
+    user_ratings.each do |n|
+      result[n] += 1
+    end
+
+    result
+  end
+
   def existing_review?(business)
     reviews.find_by(business: business)
   end

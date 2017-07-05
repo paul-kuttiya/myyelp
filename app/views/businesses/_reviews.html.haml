@@ -19,7 +19,7 @@
                     .btn.btn-stars.btn-md.reviews-total
                       %span.glyphicon.glyphicon-star
                     %p.total #{review.user.total_reviews} Reviews
-          .col-lg-8.col-md-8.no-padding
+          .col-lg-8.col-md-8
             .user-ratings
               = render "/shared/stars", star: review
               %date= format_date(review.created_at)

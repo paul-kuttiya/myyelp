@@ -20,12 +20,18 @@ describe Business do
   end
   
   describe "#last_review" do
-    it "returns last review" do
+    it "returns last review if reviews are presented" do
       business = Fabricate(:business)
       review1 = Fabricate(:review, business: business, created_at: 2.days.ago)
       review2 = Fabricate(:review, business: business)
 
       expect(business.last_review).to eq review2.description
+    end
+
+    it "returns nil when no reviews" do
+      business = Fabricate(:business)
+
+      expect(business.last_review).to be_nil
     end
   end
 
@@ -38,6 +44,12 @@ describe Business do
 
       expect(business.last_reviewer).to eq user
     end
+
+    it "returns nil when no reviews" do
+      business = Fabricate(:business)
+
+      expect(business.last_review).to be_nil
+    end
   end
 
   describe "#rating" do
@@ -47,6 +59,12 @@ describe Business do
       review2 = Fabricate(:review, rating: 3)
 
       expect(business.rating).to eq 2
+    end
+
+    it "returns 0 if no reviews presented" do
+      business = Fabricate(:business)
+
+      expect(business.rating).to eq 0
     end
   end
 end

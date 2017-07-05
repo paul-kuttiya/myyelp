@@ -3,8 +3,8 @@ module ApplicationHelper
     date.strftime("%m/%d/%Y")
   end
 
-  def display_words(string, words_size=50)
-    words = string.split(' ')
-    words[0..words_size].join(' ')
+  def display_words(string, chars_size=300)
+    return if !string
+    string[0..chars_size]
   end
 end
