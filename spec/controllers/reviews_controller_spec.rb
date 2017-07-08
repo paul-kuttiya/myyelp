@@ -5,7 +5,7 @@ describe ReviewsController do
       review2 = Fabricate(:review)
 
       get :index
-      expect(assigns[:reviews].size).to be 2
+      expect(assigns[:reviews].length).to be 2
     end
 
     it "orders reviews DESC" do

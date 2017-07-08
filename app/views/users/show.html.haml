@@ -16,7 +16,7 @@
     -# %h4 New York, NY
     .btn.btn-stars.btn-md.reviews-total
       %span.glyphicon.glyphicon-star
-    %p.total #{@user.reviews.size} Reviews
+    %p.total #{@user.reviews.length} Reviews
     %ul.reviews
       %h2 Recent Review
       = render partial: 'review', collection: @user.reviews

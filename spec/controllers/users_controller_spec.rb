@@ -54,7 +54,7 @@ describe UsersController do
       end
 
       it "returns error messages" do
-        expect(assigns[:user].errors.full_messages.size).to eq 1
+        expect(assigns[:user].errors.full_messages.length).to eq 1
       end
 
       it "renders sign in form" do 

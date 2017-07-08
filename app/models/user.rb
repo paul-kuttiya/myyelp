@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def total_reviews
-    reviews.size
+    reviews.length
   end
 
   def rating_details

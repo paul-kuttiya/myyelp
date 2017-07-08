@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
   validates_uniqueness_of :address, :phone
 
   def reviews_count
-    reviews.size
+    reviews.length
   end
 
   def last_review
@@ -19,12 +19,12 @@ class Business < ActiveRecord::Base
 
   def rating
     reviews_total = reviews.map(&:rating).inject(:+) || 0
-    reviews_size = reviews.size
+    reviews_size = reviews.length
     reviews_total == 0 ?  0 : (reviews_total / reviews_size).ceil
   end
 
   private
   def has_review?
-    reviews.size > 0
+    reviews.length > 0
   end
 end

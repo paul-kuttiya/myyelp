@@ -5,7 +5,7 @@ describe BusinessesController do
       business2 = Fabricate(:business)
 
       get :index
-      expect(assigns[:businesses].size).to be 2
+      expect(assigns[:businesses].length).to be 2
     end
 
     it "orders business DESC" do
