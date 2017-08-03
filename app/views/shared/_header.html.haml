@@ -1,33 +1,37 @@
-.navbar.navbar-default
-  #searchbar
-    %ul.nav.navbar-nav
+%nav.navbar.navbar-default#searchbar
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       = link_to root_path, class: "navbar-brand" do
         %img(src="/images/yelp_icon.png")
-    %ul.nav.navbar-nav.navbar-right.session
-      %li
-        -if logged_in?
-          .header-profile
-            %img(src="/images/profile-placeholder.png")
-            %h5= "#{current_user.first_name}"
-        -else
-          =link_to "Sign up", signup_path, class: "btn btn-danger btn-md navbar-btn"
-          
-    -# %form.navbar-form
-    -#   .form-group{:style => "display:inline;"}
-    -#     .input-group{:style => "display:table;"}
-    -#       %input.form-control{:autocomplete => "off", :autofocus => "autofocus", :name => "search", :placeholder => "Search Here", :type => "text"}/
-    -#       %a.input-group-addon{:style => "width:1%;"}
-    -#         %span.glyphicon.glyphicon-search
-  #secondary-nav.container-fluid
-    .navbar-bottom
-      %ul.nav.navbar-nav
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-left
         %li= link_to "View Business", businesses_path
         %li= link_to "Recent Reviews", reviews_path
         - if logged_in?
           %li= link_to "New business", new_business_path
-      %ul.nav.navbar-nav.navbar-right.session
-        %li
-          - if logged_in?
-            = link_to "Log Out", logout_path
-          - else  
-            = link_to "Log In", login_path
+      %ul.nav.navbar-nav.navbar-right
+        -if logged_in?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              .header-profile
+                %img(src="/images/profile-placeholder.png")
+                %small= current_user.first_name
+                %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider{:role => "separator"}
+              %li= link_to "Log Out", logout_path
+        -else
+          %li= link_to "Log In", login_path
+          %li= link_to "Sign Up", signup_path
