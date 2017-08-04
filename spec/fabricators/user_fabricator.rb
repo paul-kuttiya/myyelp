@@ -12,10 +12,10 @@ def gender
   ['men', 'women'].sample
 end
 
-def sample_slug
-  SecureRandom.hex(5)
-end
+# def sample_slug
+#   SecureRandom.hex(5)
+# end
 
 def sample_num(start, final)
-  (1..4).to_a.sample
+  (start..final).to_a.sample
 end

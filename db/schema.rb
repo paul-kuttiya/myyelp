@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170803192451) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo"
+    t.string   "photo",      default: "/images/profile-placeholder.png"
   end
 
   create_table "reviews", force: true do |t|
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170803192451) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo"
+    t.string   "photo",           default: "/images/profile-placeholder.png"
   end
 
 end
