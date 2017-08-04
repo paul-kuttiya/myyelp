@@ -207,7 +207,6 @@ DEPENDENCIES
   faker
   haml-rails
   jquery-rails
-  json
   launchy
   pg (~> 0.20.0)
   pry
