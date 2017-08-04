@@ -4,4 +4,18 @@ Fabricator(:user) do
   last_name { Faker::Name.last_name }
   zip { Faker::Address.zip }
   password { Faker::Internet.password }
+  # photo { Faker::Avatar.image(sample_slug, "50x50", "png", "set#{sample_num(1, 4)}", "bg#{sample_num(1, 4)}") }  
+  photo { "https://randomuser.me/api/portraits/#{gender}/#{sample_num(1, 99)}.jpg" }
+end
+
+def gender
+  ['men', 'women'].sample
+end
+
+def sample_slug
+  SecureRandom.hex(5)
+end
+
+def sample_num(start, final)
+  (1..4).to_a.sample
 end

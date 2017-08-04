@@ -20,7 +20,7 @@
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
               .header-profile
-                %img(src="/images/profile-placeholder.png")
+                %img(src="#{current_user.photo}")
                 %small= current_user.first_name
                 %span.caret
             %ul.dropdown-menu

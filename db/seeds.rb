@@ -1,9 +1,8 @@
-User.create(
+Fabricate(:user,
   first_name: 'admin',
   last_name: 'admin',
   email: 'admin@email.com',
-  zip: '11111',
-  password: 'admin'
+  password: 'admin',
 )
 
 10.times do

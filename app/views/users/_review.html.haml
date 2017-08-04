@@ -2,7 +2,7 @@
   .media
     .media-left.media-top
       = link_to review.business do
-        %img.media-object(src="/images/profile-placeholder.png")
+        %img.media-object(src="#{review.business.photo}")
     .media-body
       %h4.media-heading #{link_to review.business_name, review.business}
       %p= review.business.address

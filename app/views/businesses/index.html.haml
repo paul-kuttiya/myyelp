@@ -8,7 +8,7 @@
             .media.col-md-7
               .media-left.media-top
                 = link_to business do
-                  %img.media-object(src="/images/profile-placeholder.png")
+                  %img.media-object(src="#{business.photo}")
               .media-body
                 %h4.media-heading #{link_to business.name, business}
                 .user-ratings
@@ -28,6 +28,6 @@
               .media
                 .media-left.media-top
                   = link_to business.last_reviewer do
-                    %img.media-object(src="/images/profile-placeholder.png")
+                    %img.media-object(src="#{business.last_reviewer.photo}")
                 .media-body
                   #{display_words(business.last_review)} ...#{link_to "Read more", business}

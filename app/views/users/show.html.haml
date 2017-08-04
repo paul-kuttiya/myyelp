@@ -1,7 +1,7 @@
 .row.profile.listings
   .col-lg-3.col-md-3
     .profile-image
-      %img(src="/images/profile-placeholder.png")
+      %img(src="#{@user.photo}")
     %h3 #{@user.first_name} 's Profile
     %ul.star-listing
       - @user.rating_details.each do |star, total|

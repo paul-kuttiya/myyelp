@@ -8,7 +8,7 @@
             .media
               .media-left.media-top
                 = link_to review.user do
-                  %img.media-object(src="/images/profile-placeholder.png")
+                  %img.media-object(src="#{review.user.photo}")
               .media-body
                 %h4.media-heading
                   %name

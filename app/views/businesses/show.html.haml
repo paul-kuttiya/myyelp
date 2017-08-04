@@ -1,14 +1,17 @@
 .row.listings.show
   .heading
     .col-lg-6.col-md-6
-      %h2.display-2= @business.name
-      .user-ratings
-        = render '/shared/stars', star: @business
-        %p.total #{@business.reviews_count} reviews
-        %address
-          %p= @business.address
-          %p #{@business.city} #{@business.state} #{@business.zip}
-          %span.phone= @business.phone
+      .media.business-cover
+        %img(src="#{@business.photo}")
+      .business-details
+        %h2.display-2= @business.name
+        .user-ratings
+          = render '/shared/stars', star: @business
+          %p.total #{@business.reviews_count} reviews
+          %address
+            %p= @business.address
+            %p #{@business.city} #{@business.state} #{@business.zip}
+            %span.phone= @business.phone
     .col-lg-6.col-md-6.write-review
       - if logged_in? && current_user.existing_review?(@business)
         = link_to "Update a review",

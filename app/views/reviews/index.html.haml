@@ -4,10 +4,10 @@
       %h2 Recent Review
       - @reviews.each do |review|
         %li.review-list
-          .media
+          .media.recent
             .media-left.media-top
               = link_to review.user do
-                %img.media-object(src="/images/profile-placeholder.png")
+                %img.media-object(src="#{review.user.photo}")
             .media-body
               %h4.media-heading= (link_to "#{review.user_name}", review.user) + " wrote a review for " + (link_to "#{review.business_name}", review.business)
               .user-ratings
