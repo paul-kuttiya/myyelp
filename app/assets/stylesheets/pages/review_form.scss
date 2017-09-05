@@ -1,5 +1,14 @@
 //new review form
 .add-review {
+  .media {
+    .media-top {
+      img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
+
   form {
     //radio
     .glyphicon-star {
